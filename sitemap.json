@@ -1,0 +1,5 @@
+{
+	"index" : ["template-1", "index"],
+	"404": ["template-1", "four-zero-four"],
+	"docs" : ["template-1", "docs"]
+}
