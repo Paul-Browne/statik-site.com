@@ -3,6 +3,12 @@
 		<p>Getting Started</p>
 		<p>sitemap.json</p>
 		<p>contentmap.json</p>
+		<p>templates</p>
+		<p>external resources</p>
+		<p>&#91;&#91;tags&#93;&#93;</p>
+		<p>project structure</p>
+		<p>images</p>
+		<p></p>
 	</aside>
 	<main>
 		<h2>Getting Started</h2>
@@ -13,6 +19,91 @@
 	<span>npm install</span><br>
 	<span>npm start</span>
 </div>
+<p>this will bootstrap a new statik-site in the <code>your-project</code> directory, spin up a server and watch for changes to the <code>src</code> directory</p>
+<p>When returning to a project you can simply run</p>
+<div class="codebox">
+	<span>npm restart</span>
+</div>
+<p>this will serve the <code>public</code> directory and watch for changes to the <code>src</code> directory, but not build the entire site again.</p>
+
+
+<h2>sitemap.json</h2>
+<p>The sitemap.json is responsible for 3 things:</p>
+<ol>
+	<li>page urls and structure of the entire site</li>
+	<li>defines which template in contentmap.json each page uses</li>
+	<li>passes strings to replace [placeholders] in the contentmap.json</li>
+</ol>
+<pre class="codebox"><code>{
+    "index" : ["template-1", "index"],
+    "404": ["template-1", "four-zero-four"],
+    "blog" : {
+        "page-1": ["blog-page", "foo", "bar"],
+        "page-2": ["blog-page", "baz"]
+    }
+}</code></pre>
+<p>This sitemap would result in 4 pages been created, with the following urls</p>
+<ul>
+	<li>index</li>
+	<li>404</li>
+	<li>blog/page-1</li>
+	<li>blog/page-2</li>
+</ul>
+<p>The "index" and "404" pages would both use the "template-1" template defined in the contentmap.json</p>
+<p>"index" would pass the string "index" and "404" would pass the string "four-zero-four" to replace the placeholder [PH1] in the contentmap.json</p>
+<p>Both blog pages would use the "blog-page" template defined in the contentmap.json</p>
+<p>"page-1" would pass two strings "foo" and "bar" to replace [PH1] and [PH2] "page-2" would pass "baz" to replace [PH1] in the contentmap.json</p>
+
+
+<h2>contentmap.json</h2>
+<p>Below is a simple example</p>
+<pre class="codebox"><code>{
+    "template-1": {
+<span>1</span>       "html": "base",
+<span>2</span>       "head": "head",
+<span>3</span>       "body": "body",
+<span>4</span>       "header": "body/header",
+<span>5</span>       "footer": "body/footer",
+<span>6</span>       "main": "body/main/[PH1]"
+    }
+}</code></pre>
+
+
+<p>stage <span>1</span> <span>2</span> <span>3</span> <span>4</span> <span>5</span> <span>6</span></p>
+<pre class="codebox"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;	
+    &#91;&#91;head&#93;&#93;
+&lt;/head&gt;
+&lt;body&gt;
+    &#91;&#91;body&#93;&#93;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	    <h2>Project Structure</h2>
 <pre class="codebox"><code>src
@@ -20,7 +111,25 @@
   css
   images
   js
+  sass/scss  (optional)
+  less       (optional)
 contentmap.json
 sitemap.json</code></pre>
+
+
+<h2>Images</h2>
+<p>Any images placed into the <code>src/images</code> directory will be optimized and resized copies will be made</p>
+<p>Resized copies will not be upscaled, so for example <code>src/images/santa.jpg</code> (if santa.jpg was 1000 &times; 600px) would result in</p>
+<pre class="codebox"><code>public/images/santa.jpg
+public/images/40/santa.jpg
+public/images/400/santa.jpg
+public/images/800/santa.jpg</code></pre>
+
+<p>images in the <code>40/</code> directory are purposfully low quality (usually around ~700 bytes) to act as potential placeholders if/when using a lazyload image replacement script.</p>
+<p>400, 800, 1200, 1600 and 2000</p>
+<p><code>src/images/christmas/banners/santa.jpg</code></p>
 	</main>	
 </section>
+
+
+

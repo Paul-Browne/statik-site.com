@@ -50,11 +50,14 @@ html.index main img {
 	border-left: 6px solid rgba(255, 165, 0, 0.8);
 }
 
-.codebox span:before{
+div.codebox span:before{
 	content: "$ ";
 	opacity: 0.4;
 }
 
+pre.codebox span{
+	color: rgba(255, 165, 0, 0.8);
+}
 
 
 
@@ -66,5 +69,19 @@ html.docs section {
 html.docs main {
 	padding: 0 1rem;
 }
+html.docs aside{
+	min-width: 222px;
+	padding: 0 1rem;
+}
+
+html.docs main h2{
+	margin-top: 6rem;
+}
+html.docs main h2:first-child{
+	margin-top: 2rem;
+}
+
+
+
 
 
