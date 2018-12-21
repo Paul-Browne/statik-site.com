@@ -5,7 +5,7 @@
 		<p>contentmap.json</p>
 		<p>templates</p>
 		<p>external resources</p>
-		<p>&#91;&#91;tags&#93;&#93;</p>
+		<p>&#91;&#91;markers&#93;&#93;</p>
 		<p>project structure</p>
 		<p>images</p>
 		<p></p>
@@ -34,14 +34,14 @@
 	<li>defines which template in contentmap.json each page uses</li>
 	<li>passes strings to replace [placeholders] in the contentmap.json</li>
 </ol>
-<pre class="codebox"><code>{
+<pre class="codebox">{
     "index" : ["template-1", "index"],
     "404": ["template-1", "four-zero-four"],
     "blog" : {
         "page-1": ["blog-page", "foo", "bar"],
         "page-2": ["blog-page", "baz"]
     }
-}</code></pre>
+}</pre>
 <p>This sitemap would result in 4 pages been created, with the following urls</p>
 <ul>
 	<li>index</li>
@@ -56,48 +56,254 @@
 
 
 <h2>contentmap.json</h2>
-<p>Below is a simple example</p>
-<pre class="codebox"><code>{
+<p>Below is a simple example, click on stages 1 through 8 to see how a page is built</p>
+<pre class="codebox">{
     "template-1": {
-<span>1</span>       "html": "base",
-<span>2</span>       "head": "head",
-<span>3</span>       "body": "body",
-<span>4</span>       "header": "body/header",
-<span>5</span>       "footer": "body/footer",
-<span>6</span>       "main": "body/main/[PH1]"
-    }
-}</code></pre>
+<span class="active"><span>1</span>       "html": "base",</span>
+<span><span>2</span>       "head": "head",</span>
+<span><span>3</span>       "favicons": "head/favicons",</span>
+<span><span>4</span>       "body": "body",</span>
+<span><span>5</span>       "header": "body/header",</span>
+<span><span>6</span>       "footer": "body/footer",</span>
+<span><span>7</span>       "main": "body/main/[PH1]"</span>
+<span><span>8</span>    }
+}</pre>
 
 
-<p>stage <span>1</span> <span>2</span> <span>3</span> <span>4</span> <span>5</span> <span>6</span></p>
-<pre class="codebox"><code>&lt;!DOCTYPE html&gt;
+<p>stage <span class="active">1</span> <span>2</span> <span>3</span> <span>4</span> <span>5</span> <span>6</span> <span>7</span> <span>8</span></p>
+
+<div data-stage="1">
+<pre class="codebox">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
     &lt;meta charset="utf-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;	
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
     &#91;&#91;head&#93;&#93;
 &lt;/head&gt;
 &lt;body&gt;
     &#91;&#91;body&#93;&#93;
 &lt;/body&gt;
-&lt;/html&gt;</code></pre>
+&lt;/html&gt;</pre>
+<p>Stage 1: The first component, base.html, is added to the page. This component contains 2 replacement &#91;&#91;markers&#93;&#93; "head" and "body" </p>
+</div>
+
+<div data-stage="2">
+<pre class="codebox">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+<pre>    &#91;&#91;favicons&#93;&#93;
+    &lt;link rel="stylesheet" type="text/css" href="/css/normalize.css"&gt;    
+    &lt;link rel="stylesheet" type="text/css" href="/css/main.css"&gt;
+    &#91;&#91;extra-css&#93;&#93;
+    &lt;script type="text/javascript" src="/js/main.js"&gt;&lt;/script&gt;
+    &#91;&#91;extra-js&#93;&#93;</pre>
+&lt;/head&gt;
+&lt;body&gt;
+    &#91;&#91;body&#93;&#93;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+<p>Stage 2: The &#91;&#91;head&#93;&#93; marker is replaced by the contents of head.html (highlighted)</p>
+</div>
+
+<div data-stage="3">
+<pre class="codebox">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+<pre>    &lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;    
+    &lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
+    &lt;link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"&gt;
+    &lt;link rel="manifest" href="/site.webmanifest"&gt;
+    &lt;link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"&gt;
+    &lt;meta name="msapplication-TileColor" content="#2d89ef"&gt;
+    &lt;meta name="theme-color" content="#ffffff"&gt;</pre>
+    &lt;link rel="stylesheet" type="text/css" href="/css/normalize.css"&gt;
+    &lt;link rel="stylesheet" type="text/css" href="/css/main.css"&gt;
+    &#91;&#91;extra-css&#93;&#93;
+    &lt;script type="text/javascript" src="/js/main.js"&gt;&lt;/script&gt;
+    &#91;&#91;extra-js&#93;&#93;
+&lt;/head&gt;
+&lt;body&gt;
+    &#91;&#91;body&#93;&#93;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+<p>Stage 3: The &#91;&#91;favicons&#93;&#93; marker is replaced by the contents of head/favicons.html</p>
+</div>
 
 
+<div data-stage="4">
+<pre class="codebox">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+    &lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;
+    &lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
+    &lt;link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"&gt;
+    &lt;link rel="manifest" href="/site.webmanifest"&gt;
+    &lt;link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"&gt;
+    &lt;meta name="msapplication-TileColor" content="#2d89ef"&gt;
+    &lt;meta name="theme-color" content="#ffffff"&gt;
+    &lt;link rel="stylesheet" type="text/css" href="/css/normalize.css"&gt;
+    &lt;link rel="stylesheet" type="text/css" href="/css/main.css"&gt;
+    &#91;&#91;extra-css&#93;&#93;
+    &lt;script type="text/javascript" src="/js/main.js"&gt;&lt;/script&gt;
+    &#91;&#91;extra-js&#93;&#93;
+&lt;/head&gt;
+&lt;body&gt;
+<pre>    &#91;&#91;header&#93;&#93;    
+    &#91;&#91;main&#93;&#93;
+    &#91;&#91;footer&#93;&#93;</pre>
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+<p>Stage 4: The &#91;&#91;body&#93;&#93; marker is replaced by the contents of body.html</p>
+</div>
 
 
+<div data-stage="5">
+<pre class="codebox">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+    &lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;
+    &lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
+    &lt;link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"&gt;
+    &lt;link rel="manifest" href="/site.webmanifest"&gt;
+    &lt;link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"&gt;
+    &lt;meta name="msapplication-TileColor" content="#2d89ef"&gt;
+    &lt;meta name="theme-color" content="#ffffff"&gt;
+    &lt;link rel="stylesheet" type="text/css" href="/css/normalize.css"&gt;
+    &lt;link rel="stylesheet" type="text/css" href="/css/main.css"&gt;
+    &#91;&#91;extra-css&#93;&#93;
+    &lt;script type="text/javascript" src="/js/main.js"&gt;&lt;/script&gt;
+    &#91;&#91;extra-js&#93;&#93;
+&lt;/head&gt;
+&lt;body&gt;
+<pre>    &lt;nav&gt;
+        &lt;a href="/"&gt;Home&lt;/a&gt;
+        &lt;a href="/contact"&gt;Contact&lt;/a&gt;    
+        &lt;a href="/about"&gt;About&lt;/a&gt;
+        &lt;a href="/blog"&gt;Blog&lt;/a&gt;
+    &lt;/nav&gt;</pre>
+    &#91;&#91;main&#93;&#93;
+    &#91;&#91;footer&#93;&#93;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+<p>Stage 5: The &#91;&#91;header&#93;&#93; marker is replaced by the contents of body/header.html</p>
+</div>
 
 
+<div data-stage="6">
+<pre class="codebox">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+    &lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;
+    &lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
+    &lt;link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"&gt;
+    &lt;link rel="manifest" href="/site.webmanifest"&gt;
+    &lt;link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"&gt;
+    &lt;meta name="msapplication-TileColor" content="#2d89ef"&gt;
+    &lt;meta name="theme-color" content="#ffffff"&gt;
+    &lt;link rel="stylesheet" type="text/css" href="/css/normalize.css"&gt;
+    &lt;link rel="stylesheet" type="text/css" href="/css/main.css"&gt;
+    &#91;&#91;extra-css&#93;&#93;
+    &lt;script type="text/javascript" src="/js/main.js"&gt;&lt;/script&gt;
+    &#91;&#91;extra-js&#93;&#93;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;nav&gt;
+        &lt;a href="/"&gt;Home&lt;/a&gt;
+        &lt;a href="/contact"&gt;Contact&lt;/a&gt;    
+        &lt;a href="/about"&gt;About&lt;/a&gt;
+        &lt;a href="/blog"&gt;Blog&lt;/a&gt;
+    &lt;/nav&gt;
+    &#91;&#91;main&#93;&#93;
+<pre>    &lt;footer class="body-footer"&gt;
+        &lt;span&gt;example.com &copy; 2019&lt;/span&gt;    
+    &lt;/footer&gt;</pre>
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+<p>Stage 6: The &#91;&#91;footer&#93;&#93; marker is replaced by the contents of body/footer.html</p>
+</div>
 
 
+<div data-stage="7">
+<pre class="codebox">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+    &lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;
+    &lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
+    &lt;link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"&gt;
+    &lt;link rel="manifest" href="/site.webmanifest"&gt;
+    &lt;link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"&gt;
+    &lt;meta name="msapplication-TileColor" content="#2d89ef"&gt;
+    &lt;meta name="theme-color" content="#ffffff"&gt;
+    &lt;link rel="stylesheet" type="text/css" href="/css/normalize.css"&gt;
+    &lt;link rel="stylesheet" type="text/css" href="/css/main.css"&gt;
+    &#91;&#91;extra-css&#93;&#93;
+    &lt;script type="text/javascript" src="/js/main.js"&gt;&lt;/script&gt;
+    &#91;&#91;extra-js&#93;&#93;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;nav&gt;
+        &lt;a href="/"&gt;Home&lt;/a&gt;
+        &lt;a href="/contact"&gt;Contact&lt;/a&gt;    
+        &lt;a href="/about"&gt;About&lt;/a&gt;
+        &lt;a href="/blog"&gt;Blog&lt;/a&gt;
+    &lt;/nav&gt;
+<pre>    &lt;main&gt;
+        &lt;p&gt;Hello World!&lt;/p&gt;
+    &lt;/main&gt;</pre>
+    &lt;footer class="body-footer"&gt;
+        &lt;span&gt;example.com &copy; 2019&lt;/span&gt;    
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+<p>Stage 7: The &#91;&#91;main&#93;&#93; marker is replaced by the contents of body/main/index.html</p>
+</div>
 
-
-
-
-
-
-
-
-
+<div data-stage="8">
+<pre class="codebox">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+    &lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;
+    &lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
+    &lt;link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"&gt;
+    &lt;link rel="manifest" href="/site.webmanifest"&gt;
+    &lt;link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"&gt;
+    &lt;meta name="msapplication-TileColor" content="#2d89ef"&gt;
+    &lt;meta name="theme-color" content="#ffffff"&gt;
+    &lt;link rel="stylesheet" type="text/css" href="/css/normalize.css"&gt;
+    &lt;link rel="stylesheet" type="text/css" href="/css/main.css"&gt;
+    &lt;script type="text/javascript" src="/js/main.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;nav&gt;
+        &lt;a href="/"&gt;Home&lt;/a&gt;
+        &lt;a href="/contact"&gt;Contact&lt;/a&gt;    
+        &lt;a href="/about"&gt;About&lt;/a&gt;
+        &lt;a href="/blog"&gt;Blog&lt;/a&gt;
+    &lt;/nav&gt;
+    &lt;main&gt;
+        &lt;p&gt;Hello World!&lt;/p&gt;
+    &lt;/main&gt;
+    &lt;footer class="body-footer"&gt;
+        &lt;span&gt;example.com &copy; 2019&lt;/span&gt;    
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+<p>Stage 8: All unused &#91;&#91;markers&#93;&#93; are removed.</p>
+</div>
 
 
 
@@ -106,7 +312,7 @@
 
 
 	    <h2>Project Structure</h2>
-<pre class="codebox"><code>src
+<pre class="codebox">src
   content
   css
   images
@@ -114,16 +320,16 @@
   sass/scss  (optional)
   less       (optional)
 contentmap.json
-sitemap.json</code></pre>
+sitemap.json</pre>
 
 
 <h2>Images</h2>
 <p>Any images placed into the <code>src/images</code> directory will be optimized and resized copies will be made</p>
 <p>Resized copies will not be upscaled, so for example <code>src/images/santa.jpg</code> (if santa.jpg was 1000 &times; 600px) would result in</p>
-<pre class="codebox"><code>public/images/santa.jpg
+<pre class="codebox">public/images/santa.jpg
 public/images/40/santa.jpg
 public/images/400/santa.jpg
-public/images/800/santa.jpg</code></pre>
+public/images/800/santa.jpg</pre>
 
 <p>images in the <code>40/</code> directory are purposfully low quality (usually around ~700 bytes) to act as potential placeholders if/when using a lazyload image replacement script.</p>
 <p>400, 800, 1200, 1600 and 2000</p>

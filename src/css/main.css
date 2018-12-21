@@ -55,8 +55,15 @@ div.codebox span:before{
 	opacity: 0.4;
 }
 
-pre.codebox span{
+pre.codebox span.active,
+p span.active{
 	color: rgba(255, 165, 0, 0.8);
+}
+
+pre pre{
+	margin: 0;
+	background: #364c63;
+	display: inline-block;
 }
 
 
