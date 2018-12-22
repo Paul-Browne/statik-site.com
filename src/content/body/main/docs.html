@@ -1,115 +1,145 @@
 <section>
-	<aside>
-		<p>Getting Started</p>
-		<p>sitemap.json</p>
-		<p>contentmap.json</p>
-		<p>templates</p>
-		<p>external resources</p>
-		<p>&#91;&#91;markers&#93;&#93;</p>
-		<p>project structure</p>
-		<p>images</p>
-		<p></p>
-	</aside>
-	<main>
-		<h2>Getting Started</h2>
-		<p>To start a new project simply</p>
-<div class="codebox">
-	<span>npx create-statik-site your-project</span><br>
-	<span>cd your-project</span><br>
-	<span>npm install</span><br>
-	<span>npm start</span>
-</div>
-<p>this will bootstrap a new statik-site in the <code>your-project</code> directory, spin up a server and watch for changes to the <code>src</code> directory</p>
-<p>When returning to a project you can simply run</p>
-<div class="codebox">
-	<span>npm restart</span>
-</div>
-<p>this will serve the <code>public</code> directory and watch for changes to the <code>src</code> directory, but not build the entire site again.</p>
+    <aside>
+        <p><a href="#getting-started">Getting Started</a></p>
+        <p><a href="#sitemap">sitemap.json</a></p>
+        <p><a href="#contentmap">contentmap.json</a></p>
+        <p><a href="#templates">templates</a></p>
+        <p><a href="#external-resources">external resources</a></p>
+        <p><a href="#project-structure">project structure</a></p>
+        <p><a href="#css-less-sass-and-js">CSS, LESS, SASS/SCSS and JavaScript</a></p>
+        <p><a href="#images">images</a></p>
+        <p></p>
+    </aside>
+    <main>
+
+<!-- 
+		***************
+		GETTING STARTED
+		***************
+-->     	
+        <h2 id="getting-started">Getting Started</h2>
+        <p>To start a new project simply</p>
+        <div class="codebox">
+            <span>npx create-statik-site your-project</span><br>
+            <span>cd your-project</span><br>
+            <span>npm install</span><br>
+            <span>npm start</span>
+        </div>
+        <p>this will bootstrap a new statik-site in the <code>your-project</code> directory, spin up a server and watch for changes to the <code>src</code> directory</p>
+        <p>When returning to a project you can simply run</p>
+        <div class="codebox">
+            <span>npm restart</span>
+        </div>
+        <p>this will serve the <code>public</code> directory and watch for changes to the <code>src</code> directory, but not build the entire site again.</p>
 
 
-<h2>sitemap.json</h2>
-<p>The sitemap.json is responsible for 3 things:</p>
-<ol>
-	<li>page urls and structure of the entire site</li>
-	<li>defines which template in contentmap.json each page uses</li>
-	<li>passes strings to replace [placeholders] in the contentmap.json</li>
-</ol>
-<pre class="codebox">{
-    "index" : ["template-1", "index"],
+
+
+<!-- 
+		********
+		SITE MAP
+		********
+--> 
+        <h2 id="sitemap">sitemap.json</h2>
+        <p>The sitemap.json is responsible for 3 things:</p>
+        <ol>
+            <li>page urls and structure of the entire site</li>
+            <li>defines which template in contentmap.json each page uses</li>
+            <li>passes strings to replace [placeholders] in the contentmap.json</li>
+        </ol>
+        <pre class="codebox">{
+    "index" : ["template-1", "homepage"],
     "404": ["template-1", "four-zero-four"],
     "blog" : {
         "page-1": ["blog-page", "foo", "bar"],
         "page-2": ["blog-page", "baz"]
     }
 }</pre>
-<p>This sitemap would result in 4 pages been created, with the following urls</p>
-<ul>
-	<li>index</li>
-	<li>404</li>
-	<li>blog/page-1</li>
-	<li>blog/page-2</li>
-</ul>
-<p>The "index" and "404" pages would both use the "template-1" template defined in the contentmap.json</p>
-<p>"index" would pass the string "index" and "404" would pass the string "four-zero-four" to replace the placeholder [PH1] in the contentmap.json</p>
-<p>Both blog pages would use the "blog-page" template defined in the contentmap.json</p>
-<p>"page-1" would pass two strings "foo" and "bar" to replace [PH1] and [PH2] "page-2" would pass "baz" to replace [PH1] in the contentmap.json</p>
+        <p>This sitemap would result in 4 pages been created, with the following urls</p>
+        <ul>
+            <li>index</li>
+            <li>404</li>
+            <li>blog/page-1</li>
+            <li>blog/page-2</li>
+        </ul>
+        <p>The "index" and "404" pages would both use the "template-1" template defined in the contentmap.json</p>
+        <p>"index" would pass the string "homepage" and "404" would pass the string "four-zero-four" to replace the placeholder [PH1] in the contentmap.json</p>
+        <p>Both blog pages would use the "blog-page" template defined in the contentmap.json</p>
+        <p>"page-1" would pass two strings "foo" and "bar" to replace [PH1] and [PH2] "page-2" would pass "baz" to replace [PH1] in the contentmap.json</p>
 
 
-<h2>contentmap.json</h2>
-<p>Below is a simple example, click on stages 1 through 8 to see how a page is built</p>
-<pre class="codebox">{
-    "template-1": {
-<span class="active"><span>1</span>       "html": "base",</span>
-<span><span>2</span>       "head": "head",</span>
-<span><span>3</span>       "favicons": "head/favicons",</span>
-<span><span>4</span>       "body": "body",</span>
-<span><span>5</span>       "header": "body/header",</span>
-<span><span>6</span>       "footer": "body/footer",</span>
-<span><span>7</span>       "main": "body/main/[PH1]"</span>
-<span><span>8</span>    }
-}</pre>
 
-
-<p>stage <span class="active">1</span> <span>2</span> <span>3</span> <span>4</span> <span>5</span> <span>6</span> <span>7</span> <span>8</span></p>
-
-<div data-stage="1">
-<pre class="codebox">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+<!-- 
+		***********
+		CONTENT MAP
+		***********
+-->         
+        <h2 id="contentmap">contentmap.json</h2>
+        <p>Below is a simple example of a contentmap.json showing just template-1, click on stages 1 through 9 to see how a page is built.</p>
+        <pre class="codebox">    {
+        "template-1": {
+<span data-stage="1" class="active"><span>1</span>           "html": "base",</span>
+<span data-stage="2"><span>2</span>           "htmlClasses": "[PH1] standard",</span>
+<span data-stage="3"><span>3</span>           "head": "head",</span>
+<span data-stage="4"><span>4</span>           "favicons": "head/favicons",</span>
+<span data-stage="5"><span>5</span>           "body": "body",</span>
+<span data-stage="6"><span>6</span>           "header": "body/header",</span>
+<span data-stage="7"><span>7</span>           "footer": "body/footer",</span>
+<span data-stage="8"><span>8</span>           "main": "body/main/[PH1]"</span>
+<span data-stage="9"><span>9</span>        }</span>
+    }</pre>
+        <div data-stage="1" class="active">
+            <p>Stage 1: The first component, base.html, is added to the page. This component contains 4 replacement markers &#91;&#91;htmlClasses&#93;&#93;, &#91;&#91;lang||en&#93;&#93;, &#91;&#91;head&#93;&#93; and &#91;&#91;body&#93;&#93; </p>
+            <p>The &#91;&#91;lang||en&#93;&#93; has a default fallback of "en" if "lang" isn't defined in the template.</p>
+            <pre class="codebox">&lt;!DOCTYPE html&gt;
+&lt;html class="<span class="red">&#91;&#91;htmlClasses&#93;&#93;</span>" lang="<span class="red">&#91;&#91;lang||en&#93;&#93;</span>"&gt;
 &lt;head&gt;
     &lt;meta charset="utf-8"&gt;
     &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
-    &#91;&#91;head&#93;&#93;
+    <span class="red">&#91;&#91;head&#93;&#93;</span>
 &lt;/head&gt;
 &lt;body&gt;
-    &#91;&#91;body&#93;&#93;
+    <span class="red">&#91;&#91;body&#93;&#93;</span>
 &lt;/body&gt;
 &lt;/html&gt;</pre>
-<p>Stage 1: The first component, base.html, is added to the page. This component contains 2 replacement &#91;&#91;markers&#93;&#93; "head" and "body" </p>
-</div>
-
-<div data-stage="2">
-<pre class="codebox">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+        </div>
+        <div data-stage="2">
+            <p>Stage 2: The &#91;&#91;htmlClasses&#93;&#93; marker is replaced by the string "homepage standard" since [PH1] = "homepage" from the sitemap.json</p>
+            <pre class="codebox">&lt;!DOCTYPE html&gt;
+&lt;html class="homepage standard" lang="<span class="red">&#91;&#91;lang||en&#93;&#93;</span>"&gt;
 &lt;head&gt;
     &lt;meta charset="utf-8"&gt;
     &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
-<pre>    &#91;&#91;favicons&#93;&#93;
+    <span class="red">&#91;&#91;head&#93;&#93;</span>
+&lt;/head&gt;
+&lt;body&gt;
+    <span class="red">&#91;&#91;body&#93;&#93;</span>
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+        </div>
+        <div data-stage="3">
+        	<p>Stage 3: The &#91;&#91;head&#93;&#93; marker is replaced by the contents of head.html (highlighted)</p>
+            <pre class="codebox">&lt;!DOCTYPE html&gt;
+&lt;html class="homepage standard" lang="<span class="red">&#91;&#91;lang||en&#93;&#93;</span>"&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+<pre>    <span class="red">&#91;&#91;favicons&#93;&#93;</span>
     &lt;link rel="stylesheet" type="text/css" href="/css/normalize.css"&gt;    
     &lt;link rel="stylesheet" type="text/css" href="/css/main.css"&gt;
-    &#91;&#91;extra-css&#93;&#93;
+    <span class="red">&#91;&#91;extra-css&#93;&#93;</span>
     &lt;script type="text/javascript" src="/js/main.js"&gt;&lt;/script&gt;
-    &#91;&#91;extra-js&#93;&#93;</pre>
+    <span class="red">&#91;&#91;extra-js&#93;&#93;</pre></span>
 &lt;/head&gt;
 &lt;body&gt;
-    &#91;&#91;body&#93;&#93;
+    <span class="red">&#91;&#91;body&#93;&#93;</span>
 &lt;/body&gt;
 &lt;/html&gt;</pre>
-<p>Stage 2: The &#91;&#91;head&#93;&#93; marker is replaced by the contents of head.html (highlighted)</p>
-</div>
-
-<div data-stage="3">
-<pre class="codebox">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+        </div>
+        <div data-stage="4">
+        	<p>Stage 4: The &#91;&#91;favicons&#93;&#93; marker is replaced by the contents of head/favicons.html</p>
+            <pre class="codebox">&lt;!DOCTYPE html&gt;
+&lt;html class="homepage standard" lang="<span class="red">&#91;&#91;lang||en&#93;&#93;</span>"&gt;
 &lt;head&gt;
     &lt;meta charset="utf-8"&gt;
     &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
@@ -122,21 +152,19 @@
     &lt;meta name="theme-color" content="#ffffff"&gt;</pre>
     &lt;link rel="stylesheet" type="text/css" href="/css/normalize.css"&gt;
     &lt;link rel="stylesheet" type="text/css" href="/css/main.css"&gt;
-    &#91;&#91;extra-css&#93;&#93;
+    <span class="red">&#91;&#91;extra-css&#93;&#93;</span>
     &lt;script type="text/javascript" src="/js/main.js"&gt;&lt;/script&gt;
-    &#91;&#91;extra-js&#93;&#93;
+    <span class="red">&#91;&#91;extra-js&#93;&#93;</span>
 &lt;/head&gt;
 &lt;body&gt;
-    &#91;&#91;body&#93;&#93;
+    <span class="red">&#91;&#91;body&#93;&#93;</span>
 &lt;/body&gt;
 &lt;/html&gt;</pre>
-<p>Stage 3: The &#91;&#91;favicons&#93;&#93; marker is replaced by the contents of head/favicons.html</p>
-</div>
-
-
-<div data-stage="4">
-<pre class="codebox">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+        </div>
+        <div data-stage="5">
+        	<p>Stage 5: The &#91;&#91;body&#93;&#93; marker is replaced by the contents of body.html</p>
+            <pre class="codebox">&lt;!DOCTYPE html&gt;
+&lt;html class="homepage standard" lang="<span class="red">&#91;&#91;lang||en&#93;&#93;</span>"&gt;
 &lt;head&gt;
     &lt;meta charset="utf-8"&gt;
     &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
@@ -149,23 +177,21 @@
     &lt;meta name="theme-color" content="#ffffff"&gt;
     &lt;link rel="stylesheet" type="text/css" href="/css/normalize.css"&gt;
     &lt;link rel="stylesheet" type="text/css" href="/css/main.css"&gt;
-    &#91;&#91;extra-css&#93;&#93;
+    <span class="red">&#91;&#91;extra-css&#93;&#93;</span>
     &lt;script type="text/javascript" src="/js/main.js"&gt;&lt;/script&gt;
-    &#91;&#91;extra-js&#93;&#93;
+    <span class="red">&#91;&#91;extra-js&#93;&#93;</span>
 &lt;/head&gt;
 &lt;body&gt;
-<pre>    &#91;&#91;header&#93;&#93;    
-    &#91;&#91;main&#93;&#93;
-    &#91;&#91;footer&#93;&#93;</pre>
+<pre>    <span class="red">&#91;&#91;header&#93;&#93;</span>    
+    <span class="red">&#91;&#91;main&#93;&#93;</span>
+    <span class="red">&#91;&#91;footer&#93;&#93;</span></pre>
 &lt;/body&gt;
 &lt;/html&gt;</pre>
-<p>Stage 4: The &#91;&#91;body&#93;&#93; marker is replaced by the contents of body.html</p>
-</div>
-
-
-<div data-stage="5">
-<pre class="codebox">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+        </div>
+        <div data-stage="6">
+        	<p>Stage 6: The &#91;&#91;header&#93;&#93; marker is replaced by the contents of body/header.html</p>
+            <pre class="codebox">&lt;!DOCTYPE html&gt;
+&lt;html class="homepage standard" lang="<span class="red">&#91;&#91;lang||en&#93;&#93;</span>"&gt;
 &lt;head&gt;
     &lt;meta charset="utf-8"&gt;
     &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
@@ -178,9 +204,9 @@
     &lt;meta name="theme-color" content="#ffffff"&gt;
     &lt;link rel="stylesheet" type="text/css" href="/css/normalize.css"&gt;
     &lt;link rel="stylesheet" type="text/css" href="/css/main.css"&gt;
-    &#91;&#91;extra-css&#93;&#93;
+    <span class="red">&#91;&#91;extra-css&#93;&#93;</span>
     &lt;script type="text/javascript" src="/js/main.js"&gt;&lt;/script&gt;
-    &#91;&#91;extra-js&#93;&#93;
+    <span class="red">&#91;&#91;extra-js&#93;&#93;</span>
 &lt;/head&gt;
 &lt;body&gt;
 <pre>    &lt;nav&gt;
@@ -189,17 +215,15 @@
         &lt;a href="/about"&gt;About&lt;/a&gt;
         &lt;a href="/blog"&gt;Blog&lt;/a&gt;
     &lt;/nav&gt;</pre>
-    &#91;&#91;main&#93;&#93;
-    &#91;&#91;footer&#93;&#93;
+    <span class="red">&#91;&#91;main&#93;&#93;</span>
+    <span class="red">&#91;&#91;footer&#93;&#93;</span>
 &lt;/body&gt;
 &lt;/html&gt;</pre>
-<p>Stage 5: The &#91;&#91;header&#93;&#93; marker is replaced by the contents of body/header.html</p>
-</div>
-
-
-<div data-stage="6">
-<pre class="codebox">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+        </div>
+        <div data-stage="7">
+        	<p>Stage 7: The &#91;&#91;footer&#93;&#93; marker is replaced by the contents of body/footer.html</p>
+            <pre class="codebox">&lt;!DOCTYPE html&gt;
+&lt;html class="homepage standard" lang="<span class="red">&#91;&#91;lang||en&#93;&#93;</span>"&gt;
 &lt;head&gt;
     &lt;meta charset="utf-8"&gt;
     &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
@@ -212,9 +236,9 @@
     &lt;meta name="theme-color" content="#ffffff"&gt;
     &lt;link rel="stylesheet" type="text/css" href="/css/normalize.css"&gt;
     &lt;link rel="stylesheet" type="text/css" href="/css/main.css"&gt;
-    &#91;&#91;extra-css&#93;&#93;
+    <span class="red">&#91;&#91;extra-css&#93;&#93;</span>
     &lt;script type="text/javascript" src="/js/main.js"&gt;&lt;/script&gt;
-    &#91;&#91;extra-js&#93;&#93;
+    <span class="red">&#91;&#91;extra-js&#93;&#93;</span>
 &lt;/head&gt;
 &lt;body&gt;
     &lt;nav&gt;
@@ -223,19 +247,17 @@
         &lt;a href="/about"&gt;About&lt;/a&gt;
         &lt;a href="/blog"&gt;Blog&lt;/a&gt;
     &lt;/nav&gt;
-    &#91;&#91;main&#93;&#93;
+    <span class="red">&#91;&#91;main&#93;&#93;</span>
 <pre>    &lt;footer class="body-footer"&gt;
         &lt;span&gt;example.com &copy; 2019&lt;/span&gt;    
     &lt;/footer&gt;</pre>
 &lt;/body&gt;
 &lt;/html&gt;</pre>
-<p>Stage 6: The &#91;&#91;footer&#93;&#93; marker is replaced by the contents of body/footer.html</p>
-</div>
-
-
-<div data-stage="7">
-<pre class="codebox">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+        </div>
+        <div data-stage="8">
+        	<p>Stage 8: The &#91;&#91;main&#93;&#93; marker is replaced by the contents of body/main/homepage.html</p>
+            <pre class="codebox">&lt;!DOCTYPE html&gt;
+&lt;html class="homepage standard" lang="<span class="red">&#91;&#91;lang||en&#93;&#93;</span>"&gt;
 &lt;head&gt;
     &lt;meta charset="utf-8"&gt;
     &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
@@ -248,9 +270,9 @@
     &lt;meta name="theme-color" content="#ffffff"&gt;
     &lt;link rel="stylesheet" type="text/css" href="/css/normalize.css"&gt;
     &lt;link rel="stylesheet" type="text/css" href="/css/main.css"&gt;
-    &#91;&#91;extra-css&#93;&#93;
+    <span class="red">&#91;&#91;extra-css&#93;&#93;</span>
     &lt;script type="text/javascript" src="/js/main.js"&gt;&lt;/script&gt;
-    &#91;&#91;extra-js&#93;&#93;
+    <span class="red">&#91;&#91;extra-js&#93;&#93;</span>
 &lt;/head&gt;
 &lt;body&gt;
     &lt;nav&gt;
@@ -263,16 +285,15 @@
         &lt;p&gt;Hello World!&lt;/p&gt;
     &lt;/main&gt;</pre>
     &lt;footer class="body-footer"&gt;
-        &lt;span&gt;example.com &copy; 2019&lt;/span&gt;    
+        &lt;span&gt;example.com &copy; 2019&lt;/span&gt;
     &lt;/footer&gt;
 &lt;/body&gt;
 &lt;/html&gt;</pre>
-<p>Stage 7: The &#91;&#91;main&#93;&#93; marker is replaced by the contents of body/main/index.html</p>
-</div>
-
-<div data-stage="8">
-<pre class="codebox">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
+        </div>
+        <div data-stage="9">
+        	<p>Stage 9: All unused &#91;&#91;markers&#93;&#93; are removed and all &#91;&#91;marker||default&#93;&#93; are resolved to the default</p>
+            <pre class="codebox">&lt;!DOCTYPE html&gt;
+&lt;html class="homepage standard" lang="en"&gt;
 &lt;head&gt;
     &lt;meta charset="utf-8"&gt;
     &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
@@ -302,17 +323,64 @@
     &lt;/footer&gt;
 &lt;/body&gt;
 &lt;/html&gt;</pre>
-<p>Stage 8: All unused &#91;&#91;markers&#93;&#93; are removed.</p>
-</div>
+        </div>
+        <p>stage <span data-stage="1" class="active">1</span> <span data-stage="2">2</span> <span data-stage="3">3</span> <span data-stage="4">4</span> <span data-stage="5">5</span> <span data-stage="6">6</span> <span data-stage="7">7</span> <span data-stage="8">8</span> <span data-stage="9">9</span></p>
 
+<!-- 
+		*********
+		TEMPLATES
+		*********
+-->        
+        <h2 id="templates">Templates</h2>
+        <p>You can chose from a variety of templating engines to create content for your site.</p>
+        <p>mustache, handlebars, underscore, art, ejs, dot and pug templating engines are currently supported.</p>
+        <p>To use a templating engine to create content for a component, simply define which engine you want to use and the location of the template and data. For example.</p>
+		<pre class="codebox">{
+    "template-1": {
+        "html": "base",
+        "htmlClasses": "[PH1] standard",
+        "head": "head",
+        "favicons": "head/favicons",
+        "body": "body",
+        "header": "body/header",
+        "footer": "body/footer",
+        "main": {
+            "engine": "mustache",
+            "data": "data/body/main/[PH1].json",
+            "template" : "templates/body/main.mustache"
+        }
+    }
+}</pre>
+		<p>You can also specify an object from within the specified json. For example.</p>
+		<pre class="codebox">"main": {
+    "engine": "mustache",
+    "data": "data.json",
+    "template" : "templates/body/main.mustache",
+    "object": "main.[PH1]"
+}</pre>
 
+<!-- 
+		******************
+		EXTERNAL RESOURCES
+		******************
+-->        
+        <h2 id="external-resources">External Resources</h2>
+		<p>You can also use external resources to create components. For example.</p>
+		<pre class="codebox">"footer": "https://example.com/pattern-library/footer",
+"main": {
+    "engine": "mustache",
+    "data": "https://example.com/some/endpoint/data.json",
+    "template" : "https://example.com/path/to/template.mustache"
+}</pre>
 
-
-
-
-
-	    <h2>Project Structure</h2>
-<pre class="codebox">src
+<!-- 
+		*****************
+		PROJECT STRUCTURE
+		*****************
+-->        
+        <h2 id="project-structure">Project Structure</h2>
+        <p>All html/template files should be placed inside the "content" directory. Other than that, statik-site maintains a pretty standard project structure.</p>
+        <pre class="codebox">src
   content
   css
   images
@@ -323,19 +391,67 @@ contentmap.json
 sitemap.json</pre>
 
 
-<h2>Images</h2>
-<p>Any images placed into the <code>src/images</code> directory will be optimized and resized copies will be made</p>
-<p>Resized copies will not be upscaled, so for example <code>src/images/santa.jpg</code> (if santa.jpg was 1000 &times; 600px) would result in</p>
-<pre class="codebox">public/images/santa.jpg
+<!-- 
+		***************************
+		CSS, SASS/SCSS, LESS and JS
+		***************************
+-->        
+        <h2 id="css-less-sass-and-js">CSS, SASS/SCSS, LESS and JavaScript</h2>
+		<p>CSS will be minified and auto-prefixed.</p>
+		<p>SASS/SCSS and LESS (if you chose to use them) will be compiled to CSS, then minified and auto-prefixed.</p>
+		<p>source/less/header.less will be compiled to public/css/header.css, same for sass/scss.</p>
+		<p>All JavaScript will be transformed to ES2015 and minified + uglified.</p>
+
+
+<!-- 
+		******
+		IMAGES
+		******
+-->
+        <h2 id="images">Images</h2>
+        <p>Any images placed into the <code>src/images</code> directory will be optimized and resized copies will be made.</p>
+        <p>Resized copies will not be upscaled, so for example <code>src/images/santa.jpg</code> (if santa.jpg was 1000 &times; 400px) would result in</p>
+        <pre class="codebox">public/images/santa.jpg
 public/images/40/santa.jpg
 public/images/400/santa.jpg
 public/images/800/santa.jpg</pre>
-
-<p>images in the <code>40/</code> directory are purposfully low quality (usually around ~700 bytes) to act as potential placeholders if/when using a lazyload image replacement script.</p>
-<p>400, 800, 1200, 1600 and 2000</p>
-<p><code>src/images/christmas/banners/santa.jpg</code></p>
-	</main>	
+        <p>Images in the <code>40/</code> directory are 40px wide and purposfully low quality (usually around ~700 bytes) to act as potential placeholders if/when using a lazyload image replacement script.</p>
+        <p>Images will be resized to the following widths: 400, 800, 1200, 1600 and 2000, providing the original is greater than 2000px wide.</p>
+        <p>Images in sub-directories will maintain their directory structure, for example <code>src/images/christmas/banners/santa.jpg</code> will be copied/resized to the following directories</p>
+        <pre class="codebox">public/images/christmas/banners/santa.jpg
+public/images/40/christmas/banners/santa.jpg
+public/images/400/christmas/banners/santa.jpg
+public/images/800/christmas/banners/santa.jpg</pre>        
+    </main>
 </section>
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+window.addEventListener("click", function(e) {
+    if (e.target.dataset.stage && e.target.nodeName === "SPAN") {
+        var allDataStages = document.querySelectorAll("[data-stage]");
+        var i = allDataStages.length;
+        var clickedStageIndex = e.target.dataset.stage;
+        while (i--) {
+            if (allDataStages[i].dataset.stage === clickedStageIndex) {
+                allDataStages[i].classList.add("active");
+            } else {
+                allDataStages[i].classList.remove("active");
+            }
+        }
+    }
+})
+</script>
