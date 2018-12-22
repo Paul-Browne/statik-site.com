@@ -11,11 +11,9 @@
 			"object": "[PH1]"
 		},
 		"head-css":"head/css",
-		"head-js":"head/js",
 		"body": "body",
 		"header": "body/header",
 		"footer": "body/footer",
-		"body-js": "body/js",
 		"google-analytics": "body/google-analytics",
 		"main": "body/main/[PH1]"
 	}
