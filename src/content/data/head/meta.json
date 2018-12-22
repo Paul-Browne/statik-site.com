@@ -7,8 +7,8 @@
 	    "og-type": "article",
 	    "og-site-name" : "statik-site.com",
 	    "socialmedia-title": "statik-site.com - homepage",
-	    "google-serp": "statik-site: A fast, simple and modular static-site generator",
-	    "socialmedia-description": "statik-site: A fast, simple and modular static-site generator",
+	    "google-serp": "statik-site: A fast, simple and modular static site generator",
+	    "socialmedia-description": "statik-site: A fast, simple and modular static site generator",
 	    "url": "statik-site.com"
 	},
 	"four-zero-four": {
@@ -31,7 +31,7 @@
 		"og-type": "article",
 		"og-site-name" : "statik-site.com",
 		"socialmedia-title": "statik-site.com - 404 page",
-		"google-serp": "statik-site: A fast, simple and modular static-site generator",
+		"google-serp": "statik-site: A fast, simple and modular static site generator",
 		"socialmedia-description": "statik-site: A fast, simple and modular static-site generator",
 		"url": "statik-site.com/docs"
 	}
