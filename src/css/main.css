@@ -133,3 +133,7 @@ span[data-stage]:hover{
 		position: static;
 	}
 }
+
+.wb-ba{
+	word-break: break-all;
+}
