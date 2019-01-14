@@ -8,6 +8,7 @@
         <p><a href="#project-structure">project structure</a></p>
         <p><a href="#css-less-sass-and-js">CSS, LESS, SASS/SCSS and JavaScript</a></p>
         <p><a href="#images">images</a></p>
+        <p><a href="#audit">npm run audit</a></p>
         <p></p>
     </aside>
     <main>
@@ -421,17 +422,80 @@ public/images/800/santa.jpg</pre>
         <pre class="codebox">public/images/christmas/banners/santa.jpg
 public/images/40/christmas/banners/santa.jpg
 public/images/400/christmas/banners/santa.jpg
-public/images/800/christmas/banners/santa.jpg</pre>        
+public/images/800/christmas/banners/santa.jpg</pre>
+
+<!-- 
+        *****
+        AUDIT
+        *****
+-->
+
+<h2 id="audit">npm run audit</h2>
+<p>Running the command <code>npm run audit</code> will print to the command line a list of all the urls and a breakdown of which templates each page uses. As well as listing unused templates in the contentmap.json</p>
+
+<pre class="codebox">PAGES
+=====
+
+https://example.com/404
+https://example.com
+https://example.com/blog
+https://example.com/blog/cars
+https://example.com/blog/cars/audi
+https://example.com/blog/cars/ford
+https://example.com/blog/cars/volvo
+https://example.com/blog/cars/volvo/S80
+https://example.com/blog/cars/volvo/S70
+https://example.com/blog/cars/volvo/V60
+https://example.com/blog/cars/volvo/V70
+https://example.com/about
+https://example.com/contact
+https://example.com/pricing
+
+Total pages: 14
+
+TEMPLATES USED
+==============
+
+blog-template
+==========
+
+https://example.com/blog
+https://example.com/blog/cars
+https://example.com/blog/cars/audi
+https://example.com/blog/cars/ford
+https://example.com/blog/cars/volvo
+https://example.com/blog/cars/volvo/S80
+https://example.com/blog/cars/volvo/S70
+https://example.com/blog/cars/volvo/V60
+https://example.com/blog/cars/volvo/V70
+
+Total pages: 9
+
+standard-template
+==========
+
+https://example.com/404
+https://example.com
+https://example.com/about
+https://example.com/contact
+https://example.com/pricing
+
+Total pages: 5
+
+TEMPLATES UNUSED
+================
+
+christmas-template
+special-offer-template</pre>
+
+
+
+
+
+
+
     </main>
 </section>
-
-
-
-
-
-
-
-
 
 
 
