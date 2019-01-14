@@ -81,7 +81,7 @@ async function generateHTML(mapObj, obj) {
             if (isExternal(mapObj[key])) {
                 output = await _request(replacePlaceholders(mapObj[key], obj));
             } else {
-                output = fs.readFileSync(contentDirectoryPath + "/" + replacePlaceholders(mapObj[key], obj) + ".html", 'utf8');
+                output = fs.readFileSync(contentDirectoryPath + "/" + replacePlaceholders(mapObj[key], obj), 'utf8');
             }
         } else if (typeof mapObj[key] === 'object') {
             var template;
@@ -142,6 +142,7 @@ async function generateHTML(mapObj, obj) {
 }
 
 function createFile(name, dir, obj) {
+    name = ~name.indexOf(".") ? name : name + ".html";
     var dirPath = dir ? "/" + dir : "";
     var data = fs.readFileSync('contentmap.json', 'utf8');
     var json = JSON.parse(data);
@@ -160,13 +161,13 @@ function createFile(name, dir, obj) {
                     removeComments: true,
                     decodeEntities: true
                 });
-                fs.writeFile(publicDirectoryName + dirPath + "/" + name + ".html", html, function(err) {
+                fs.writeFile(publicDirectoryName + dirPath + "/" + name, html, function(err) {
                     if (err) {
                         console.error(err);
                     }
                 });
                 //console.log("https://localhost:8888/" + dirPath + (dirPath ? "/" : "") + name);
-                console.log(publicDirectoryName + dirPath + "/" + name + ".html generated, total time elapsed " + ( (Date.now() - timerStart) / 1000).toFixed(2) + " seconds");
+                console.log(publicDirectoryName + dirPath + "/" + name + " generated, total time elapsed " + ( (Date.now() - timerStart) / 1000).toFixed(2) + " seconds");
             })
         }
     }

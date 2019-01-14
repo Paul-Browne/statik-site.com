@@ -2,5 +2,8 @@
 	"index" : ["template-1", "index"],
 	"404": ["template-1", "four-zero-four"],
 	"docs" : ["template-1", "docs"],
-	"templates" : ["template-1", "templates"]
+	"templates" : {
+		"index": ["template-1", "templates"],
+		"table.txt": ["blank", "table"]
+	}
 }

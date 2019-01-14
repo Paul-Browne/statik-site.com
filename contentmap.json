@@ -1,6 +1,6 @@
 {
 	"template-1": {
-		"html": "base",
+		"html": "base.html",
 		"htmlClass": "[PH1] standard",
 		"head": "head",
 		"favicons": "head/favicons",
@@ -16,5 +16,8 @@
 		"footer": "body/footer",
 		"google-analytics": "body/google-analytics",
 		"main": "body/main/[PH1]"
+	},
+	"blank": {
+		"html": "body/main/templates/[PH1].mustache"
 	}
 }
