@@ -34,5 +34,17 @@
 		"google-serp": "statik-site: A fast, simple and modular static site generator",
 		"socialmedia-description": "statik-site: A fast, simple and modular static-site generator",
 		"url": "statik-site.com/docs"
+	},
+	"templates": {
+		"image": "/android-chrome-192x192.png",
+		"title": "docs · statik-site.com",
+		"twitter-card": "summary",
+		"twitter-handle": "@paulbrownexyz",
+		"og-type": "article",
+		"og-site-name" : "statik-site.com",
+		"socialmedia-title": "statik-site.com - 404 page",
+		"google-serp": "statik-site: A fast, simple and modular static site generator",
+		"socialmedia-description": "statik-site: A fast, simple and modular static-site generator",
+		"url": "statik-site.com/templates"
 	}
 }
