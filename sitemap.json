@@ -3,7 +3,7 @@
 	"404": ["template-1", "four-zero-four"],
 	"docs" : ["template-1", "docs"],
 	"templates" : {
-		"index": ["template-1", "templates"],
+		"index": ["template-2", "templates"],
 		"table.txt": ["blank", "table"]
 	}
 }

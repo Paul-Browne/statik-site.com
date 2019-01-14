@@ -1,0 +1,24 @@
+{{#if stylesheet}}
+	<link rel="stylesheet" type="text/css" href="{{stylesheet}}">
+{{/if}}
+<table class="{{#if tableClass}}{{tableClass}}{{/if}}">
+	<tbody>
+	
+	{{#each head}}
+		<tr>
+		{{#each this}}
+			<th class="{{@key}}">{{this}}</th>
+		{{/each}}
+		</tr>
+	{{/each}}
+	
+	{{#each body}}
+		<tr>
+		{{#each this}}
+			<td class="{{@key}}">{{this}}</td>
+		{{/each}}
+		</tr>
+	{{/each}}
+	
+	</tbody>
+</table>

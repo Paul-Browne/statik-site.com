@@ -1,0 +1,33 @@
+{
+	"stylesheet" : "css/normalize.css",
+	"tableClass" : "hello world",
+	"head": [
+		{
+			"name": "NAME",
+			"age": "AGE",
+			"height": "HEIGHT (feet)"
+		}
+	],
+	"body": [
+		{
+			"name": "Paul",
+			"age": 35,
+			"height": 183
+		},
+		{
+			"name": "Bob",
+			"age": 33,
+			"height": 173
+		},
+		{
+			"name": "Mike",
+			"age": 31,
+			"height": 181
+		},
+		{
+			"name": "Andrew",
+			"age": 44,
+			"height": 180
+		}
+	]
+}
