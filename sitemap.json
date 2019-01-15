@@ -6,7 +6,8 @@
 		"index": ["template-2", "components"],
 		"table.handlebars.txt": ["blank", "table.handlebars"],
 		"favicons.handlebars.txt": ["blank", "favicons.handlebars"],
-		"html.txt": ["blank", "html"]
+		"html.txt": ["blank", "html"],
+		"google-analytics.handlebars.txt": ["blank", "google-analytics.handlebars"]
 	},
 	"test": ["template-2", "test"]
 }

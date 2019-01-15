@@ -156,8 +156,8 @@ function createFile(name, dir, obj) {
                 html = minify(html, {
                     removeAttributeQuotes: false,
                     collapseWhitespace: false,
-                    minifyCSS: true,
-                    minifyJS: true,
+                    minifyCSS: false,
+                    minifyJS: false,
                     removeComments: false,
                     decodeEntities: true
                 });
