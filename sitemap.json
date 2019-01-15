@@ -4,6 +4,7 @@
 	"docs" : ["template-1", "docs"],
 	"templates" : {
 		"index": ["template-2", "templates"],
-		"table.txt": ["blank", "table"]
+		"table.txt": ["blank", "table"],
+		"html.txt": ["blank", "html"]
 	}
 }

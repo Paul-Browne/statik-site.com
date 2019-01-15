@@ -81,7 +81,7 @@ async function generateHTML(mapObj, obj) {
             if (isExternal(mapObj[key])) {
                 output = await _request(replacePlaceholders(mapObj[key], obj));
             } else {
-                output = fs.readFileSync(contentDirectoryPath + "/" + replacePlaceholders(mapObj[key], obj), 'utf8');
+                output = fs.readFileSync(contentDirectoryPath + "/" + replacePlaceholders(mapObj[key], obj) + ".html", 'utf8');
             }
         } else if (typeof mapObj[key] === 'object') {
             var template;
@@ -155,10 +155,10 @@ function createFile(name, dir, obj) {
                 html = replacePlaceholdersWithDefaults(html);
                 html = minify(html, {
                     removeAttributeQuotes: false,
-                    collapseWhitespace: true,
+                    collapseWhitespace: false,
                     minifyCSS: true,
                     minifyJS: true,
-                    removeComments: true,
+                    removeComments: false,
                     decodeEntities: true
                 });
                 fs.writeFile(publicDirectoryName + dirPath + "/" + name, html, function(err) {

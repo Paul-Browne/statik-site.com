@@ -1,6 +1,6 @@
 {
 	"template-1": {
-		"html": "base.html",
+		"html": "base",
 		"htmlClass": "[PH1] standard",
 		"head": "head",
 		"favicons": "head/favicons",
@@ -18,7 +18,7 @@
 		"main": "body/main/[PH1]"
 	},
 	"template-2": {
-		"html": "base.html",
+		"html": "base",
 		"htmlClass": "[PH1] standard",
 		"head": "head",
 		"favicons": "head/favicons",
@@ -41,6 +41,6 @@
 		}
 	},
 	"blank": {
-		"html": "body/main/templates/[PH1].handlebars"
+		"html": "body/main/templates/[PH1]"
 	}
 }
