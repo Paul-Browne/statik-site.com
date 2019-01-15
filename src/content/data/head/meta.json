@@ -46,5 +46,17 @@
 		"google-serp": "statik-site: Components Repository",
 		"socialmedia-description": "statik-site: Components Repository",
 		"url": "statik-site.com/components"
+	},
+	"test": {
+		"image": "/android-chrome-192x192.png",
+		"title": "test · statik-site.com",
+		"twitter-card": "summary",
+		"twitter-handle": "@paulbrownexyz",
+		"og-type": "article",
+		"og-site-name" : "statik-site.com",
+		"socialmedia-title": "test",
+		"google-serp": "test",
+		"socialmedia-description": "test",
+		"url": "statik-site.com/test"
 	}
 }

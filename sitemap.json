@@ -7,5 +7,6 @@
 		"table.handlebars.txt": ["blank", "table.handlebars"],
 		"favicons.handlebars.txt": ["blank", "favicons.handlebars"],
 		"html.txt": ["blank", "html"]
-	}
+	},
+	"test": ["template-2", "test"]
 }

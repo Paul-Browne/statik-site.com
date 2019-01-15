@@ -33,7 +33,12 @@
 		"header": "body/header",
 		"footer": "body/footer",
 		"google-analytics": "body/google-analytics",
-		"main": "body/main/[PH1]"
+		"main": "body/main/[PH1]",
+		"comp": {
+			"engine": "handlebars",
+			"template": "https://statik-site.com/components/table.handlebars.txt",
+			"data": "data/body/table.json"
+		}
 	},
 	"blank": {
 		"html": "body/main/components/[PH1]"
