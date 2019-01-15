@@ -30,21 +30,21 @@
 		"twitter-handle": "@paulbrownexyz",
 		"og-type": "article",
 		"og-site-name" : "statik-site.com",
-		"socialmedia-title": "statik-site.com - 404 page",
+		"socialmedia-title": "statik-site.com - docs",
 		"google-serp": "statik-site: A fast, simple and modular static site generator",
 		"socialmedia-description": "statik-site: A fast, simple and modular static-site generator",
 		"url": "statik-site.com/docs"
 	},
-	"templates": {
+	"components": {
 		"image": "/android-chrome-192x192.png",
-		"title": "docs · statik-site.com",
+		"title": "components · statik-site.com",
 		"twitter-card": "summary",
 		"twitter-handle": "@paulbrownexyz",
 		"og-type": "article",
 		"og-site-name" : "statik-site.com",
-		"socialmedia-title": "statik-site.com - 404 page",
-		"google-serp": "statik-site: A fast, simple and modular static site generator",
-		"socialmedia-description": "statik-site: A fast, simple and modular static-site generator",
-		"url": "statik-site.com/templates"
+		"socialmedia-title": "statik-site.com - components",
+		"google-serp": "statik-site: Components Repository",
+		"socialmedia-description": "statik-site: Components Repository",
+		"url": "statik-site.com/components"
 	}
 }

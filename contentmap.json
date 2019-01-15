@@ -41,6 +41,6 @@
 		}
 	},
 	"blank": {
-		"html": "body/main/templates/[PH1]"
+		"html": "body/main/components/[PH1]"
 	}
 }
