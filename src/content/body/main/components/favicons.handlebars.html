@@ -1,0 +1,42 @@
+{{#if apple-touch-icon}}<link rel="apple-touch-icon" sizes="180x180" href="{{apple-touch-icon}}">{{/if}}
+{{#if favicon32}}<link rel="icon" type="image/png" sizes="32x32" href="{{favicon32}}">{{/if}}
+{{#if favicon16}}<link rel="icon" type="image/png" sizes="16x16" href="{{favicon16}}">{{/if}}
+{{#if favicon}}<link rel="shortcut icon" href="{{favicon}}">{{/if}}
+{{#if web-manifest}}<link rel="manifest" href="{{web-manifest}}">{{/if}}
+{{#if safari-pinned-tab-href}}<link rel="mask-icon" href="{{safari-pinned-tab-href}}" color="{{if safari-pinned-tab-color}}{{safari-pinned-tab-color}}{{/if}}">{{/if}}
+{{#if ms-tile-color}}<meta name="msapplication-TileColor" content="{{ms-tile-color}}">{{/if}}
+{{#if theme-color}}<meta name="theme-color" content="{{theme-color}}">{{/if}}
+
+<!--
+
+EXAMPLE JSON
+============
+
+{
+	"apple-touch-icon" : apple-touch-icon.png,
+	"favicon32": "favicon-32x32.png",
+	"favicon16": "favicon-16x16.png",
+	"favicon": "favicon.ico",
+	"web-manifest": "site.webmanifest",
+	"safari-pinned-tab-href": "safari-pinned-tab.svg",
+	"safari-pinned-tab-color": "#5bbad5",
+	"ms-tile-color": "#2d89ef",
+	"theme-color": "#ffffff"
+}
+
+-->
+<!--
+
+COMPILED EXAMPLE
+================
+
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="manifest" href="site.webmanifest">
+<link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#ffffff">
+
+-->

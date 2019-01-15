@@ -4,7 +4,8 @@
 	"docs" : ["template-1", "docs"],
 	"components" : {
 		"index": ["template-2", "components"],
-		"table.handlebars.txt": ["blank", "table"],
+		"table.handlebars.txt": ["blank", "table.handlebars"],
+		"favicons.handlebars.txt": ["blank", "favicons.handlebars"],
 		"html.txt": ["blank", "html"]
 	}
 }
