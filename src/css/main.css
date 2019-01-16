@@ -42,6 +42,10 @@ html.four-zero-four main{
 	justify-content: center;
 }
 
+html.index main{
+	padding: 1rem;
+}
+
 html.index main > * {
 	margin: 1rem 0;
 }
