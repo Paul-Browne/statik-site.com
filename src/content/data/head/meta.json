@@ -47,6 +47,30 @@
 		"socialmedia-description": "statik-site: Components Repository",
 		"url": "statik-site.com/components"
 	},
+	"pages": {
+		"image": "/android-chrome-192x192.png",
+		"title": "pages · statik-site.com",
+		"twitter-card": "summary",
+		"twitter-handle": "@paulbrownexyz",
+		"og-type": "article",
+		"og-site-name" : "statik-site.com",
+		"socialmedia-title": "statik-site.com - pages",
+		"google-serp": "statik-site: Pages Repository",
+		"socialmedia-description": "statik-site: Pages Repository",
+		"url": "statik-site.com/pages"
+	},
+	"sites": {
+		"image": "/android-chrome-192x192.png",
+		"title": "sites · statik-site.com",
+		"twitter-card": "summary",
+		"twitter-handle": "@paulbrownexyz",
+		"og-type": "article",
+		"og-site-name" : "statik-site.com",
+		"socialmedia-title": "statik-site.com - sites",
+		"google-serp": "statik-site: Sites Repository",
+		"socialmedia-description": "statik-site: Sites Repository",
+		"url": "statik-site.com/sites"
+	},
 	"test": {
 		"image": "/android-chrome-192x192.png",
 		"title": "test · statik-site.com",

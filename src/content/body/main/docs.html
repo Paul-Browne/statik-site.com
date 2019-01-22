@@ -77,16 +77,21 @@
 -->         
         <h2 id="contentmap">contentmap.json</h2>
         <p>Below is a simple example of a contentmap.json showing just template-1, click on stages 1 through 9 to see how a page is built.</p>
+
         <pre class="codebox">    {
         "template-1": {
-<span data-stage="1" class="active"><span>1</span>           "html": "base",</span>
+<span data-stage="1" class="active"><span>1</span>           "content": "base",</span>
 <span data-stage="2"><span>2</span>           "htmlClasses": "[PH1] standard",</span>
-<span data-stage="3"><span>3</span>           "head": "head",</span>
-<span data-stage="4"><span>4</span>           "favicons": "head/favicons",</span>
-<span data-stage="5"><span>5</span>           "body": "body",</span>
-<span data-stage="6"><span>6</span>           "header": "body/header",</span>
-<span data-stage="7"><span>7</span>           "footer": "body/footer",</span>
-<span data-stage="8"><span>8</span>           "main": "body/main/[PH1]"</span>
+            "head": {
+<span data-stage="3"><span>3</span>               "content": "head",</span>
+<span data-stage="4"><span>4</span>               "favicons": "head/favicons"</span>
+            },
+            "body": {
+<span data-stage="5"><span>5</span>               "content": "body",</span>
+<span data-stage="6"><span>6</span>               "header": "body/header",</span>
+<span data-stage="7"><span>7</span>               "footer": "body/footer",</span>
+<span data-stage="8"><span>8</span>               "main": "body/main/[PH1]"</span>
+            }
 <span data-stage="9"><span>9</span>        }</span>
     }</pre>
         <div data-stage="1" class="active">
