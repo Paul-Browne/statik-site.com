@@ -95,57 +95,57 @@
 <span data-stage="9"><span>9</span>        }</span>
     }</pre>
         <div data-stage="1" class="active">
-            <p>Stage 1: The first component, base.html, is added to the page. This component contains 4 replacement markers &#91;&#91;htmlClasses&#93;&#93;, &#91;&#91;lang||en&#93;&#93;, &#91;&#91;head&#93;&#93; and &#91;&#91;body&#93;&#93; </p>
-            <p>The &#91;&#91;lang||en&#93;&#93; has a default fallback of "en" if "lang" isn't defined in the template.</p>
+            <p>Stage 1: The first component, base.html, is added to the page. This component contains 4 replacement markers [[[[]]htmlClasses[[]]]], [[[[]]lang||en[[]]]], [[[[]]head[[]]]] and [[[[]]body[[]]]] </p>
+            <p>The [[[[]]lang||en[[]]]] has a default fallback of "en" if "lang" isn't defined in the template.</p>
             <pre class="codebox">&lt;!DOCTYPE html&gt;
-&lt;html class="<span class="red">&#91;&#91;htmlClasses&#93;&#93;</span>" lang="<span class="red">&#91;&#91;lang||en&#93;&#93;</span>"&gt;
+&lt;html class="<span class="red">[[[[]]htmlClasses[[]]]]</span>" lang="<span class="red">[[[[]]lang||en[[]]]]</span>"&gt;
 &lt;head&gt;
     &lt;meta charset="utf-8"&gt;
     &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
-    <span class="red">&#91;&#91;head&#93;&#93;</span>
+    <span class="red">[[[[]]head[[]]]]</span>
 &lt;/head&gt;
 &lt;body&gt;
-    <span class="red">&#91;&#91;body&#93;&#93;</span>
+    <span class="red">[[[[]]body[[]]]]</span>
 &lt;/body&gt;
 &lt;/html&gt;</pre>
         </div>
         <div data-stage="2">
-            <p>Stage 2: The &#91;&#91;htmlClasses&#93;&#93; marker is replaced by the string "homepage standard" since [PH1] = "homepage" from the sitemap.json</p>
+            <p>Stage 2: The [[[[]]htmlClasses[[]]]] marker is replaced by the string "homepage standard" since [PH1] = "homepage" from the sitemap.json</p>
             <pre class="codebox">&lt;!DOCTYPE html&gt;
-&lt;html class="homepage standard" lang="<span class="red">&#91;&#91;lang||en&#93;&#93;</span>"&gt;
+&lt;html class="homepage standard" lang="<span class="red">[[[[]]lang||en[[]]]]</span>"&gt;
 &lt;head&gt;
     &lt;meta charset="utf-8"&gt;
     &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
-    <span class="red">&#91;&#91;head&#93;&#93;</span>
+    <span class="red">[[[[]]head[[]]]]</span>
 &lt;/head&gt;
 &lt;body&gt;
-    <span class="red">&#91;&#91;body&#93;&#93;</span>
+    <span class="red">[[[[]]body[[]]]]</span>
 &lt;/body&gt;
 &lt;/html&gt;</pre>
         </div>
         <div data-stage="3">
-        	<p>Stage 3: The &#91;&#91;head&#93;&#93; marker is replaced by the contents of head.html (highlighted)</p>
+        	<p>Stage 3: The [[[[]]head[[]]]] marker is replaced by the contents of head.html (highlighted)</p>
             <pre class="codebox">&lt;!DOCTYPE html&gt;
-&lt;html class="homepage standard" lang="<span class="red">&#91;&#91;lang||en&#93;&#93;</span>"&gt;
+&lt;html class="homepage standard" lang="<span class="red">[[[[]]lang||en[[]]]]</span>"&gt;
 &lt;head&gt;
     &lt;meta charset="utf-8"&gt;
     &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
-<pre>    <span class="red">&#91;&#91;favicons&#93;&#93;</span>
+<pre>    <span class="red">[[[[]]favicons[[]]]]</span>
     &lt;link rel="stylesheet" type="text/css" href="/css/normalize.css"&gt;    
     &lt;link rel="stylesheet" type="text/css" href="/css/main.css"&gt;
-    <span class="red">&#91;&#91;extra-css&#93;&#93;</span>
+    <span class="red">[[[[]]extra-css[[]]]]</span>
     &lt;script type="text/javascript" src="/js/main.js"&gt;&lt;/script&gt;
-    <span class="red">&#91;&#91;extra-js&#93;&#93;</pre></span>
+    <span class="red">[[[[]]extra-js[[]]]]</pre></span>
 &lt;/head&gt;
 &lt;body&gt;
-    <span class="red">&#91;&#91;body&#93;&#93;</span>
+    <span class="red">[[[[]]body[[]]]]</span>
 &lt;/body&gt;
 &lt;/html&gt;</pre>
         </div>
         <div data-stage="4">
-        	<p>Stage 4: The &#91;&#91;favicons&#93;&#93; marker is replaced by the contents of head/favicons.html</p>
+        	<p>Stage 4: The [[[[]]favicons[[]]]] marker is replaced by the contents of head/favicons.html</p>
             <pre class="codebox">&lt;!DOCTYPE html&gt;
-&lt;html class="homepage standard" lang="<span class="red">&#91;&#91;lang||en&#93;&#93;</span>"&gt;
+&lt;html class="homepage standard" lang="<span class="red">[[[[]]lang||en[[]]]]</span>"&gt;
 &lt;head&gt;
     &lt;meta charset="utf-8"&gt;
     &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
@@ -158,19 +158,19 @@
     &lt;meta name="theme-color" content="#ffffff"&gt;</pre>
     &lt;link rel="stylesheet" type="text/css" href="/css/normalize.css"&gt;
     &lt;link rel="stylesheet" type="text/css" href="/css/main.css"&gt;
-    <span class="red">&#91;&#91;extra-css&#93;&#93;</span>
+    <span class="red">[[[[]]extra-css[[]]]]</span>
     &lt;script type="text/javascript" src="/js/main.js"&gt;&lt;/script&gt;
-    <span class="red">&#91;&#91;extra-js&#93;&#93;</span>
+    <span class="red">[[[[]]extra-js[[]]]]</span>
 &lt;/head&gt;
 &lt;body&gt;
-    <span class="red">&#91;&#91;body&#93;&#93;</span>
+    <span class="red">[[[[]]body[[]]]]</span>
 &lt;/body&gt;
 &lt;/html&gt;</pre>
         </div>
         <div data-stage="5">
-        	<p>Stage 5: The &#91;&#91;body&#93;&#93; marker is replaced by the contents of body.html</p>
+        	<p>Stage 5: The [[[[]]body[[]]]] marker is replaced by the contents of body.html</p>
             <pre class="codebox">&lt;!DOCTYPE html&gt;
-&lt;html class="homepage standard" lang="<span class="red">&#91;&#91;lang||en&#93;&#93;</span>"&gt;
+&lt;html class="homepage standard" lang="<span class="red">[[[[]]lang||en[[]]]]</span>"&gt;
 &lt;head&gt;
     &lt;meta charset="utf-8"&gt;
     &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
@@ -183,21 +183,21 @@
     &lt;meta name="theme-color" content="#ffffff"&gt;
     &lt;link rel="stylesheet" type="text/css" href="/css/normalize.css"&gt;
     &lt;link rel="stylesheet" type="text/css" href="/css/main.css"&gt;
-    <span class="red">&#91;&#91;extra-css&#93;&#93;</span>
+    <span class="red">[[[[]]extra-css[[]]]]</span>
     &lt;script type="text/javascript" src="/js/main.js"&gt;&lt;/script&gt;
-    <span class="red">&#91;&#91;extra-js&#93;&#93;</span>
+    <span class="red">[[[[]]extra-js[[]]]]</span>
 &lt;/head&gt;
 &lt;body&gt;
-<pre>    <span class="red">&#91;&#91;header&#93;&#93;</span>    
-    <span class="red">&#91;&#91;main&#93;&#93;</span>
-    <span class="red">&#91;&#91;footer&#93;&#93;</span></pre>
+<pre>    <span class="red">[[[[]]header[[]]]]</span>    
+    <span class="red">[[[[]]main[[]]]]</span>
+    <span class="red">[[[[]]footer[[]]]]</span></pre>
 &lt;/body&gt;
 &lt;/html&gt;</pre>
         </div>
         <div data-stage="6">
-        	<p>Stage 6: The &#91;&#91;header&#93;&#93; marker is replaced by the contents of body/header.html</p>
+        	<p>Stage 6: The [[[[]]header[[]]]] marker is replaced by the contents of body/header.html</p>
             <pre class="codebox">&lt;!DOCTYPE html&gt;
-&lt;html class="homepage standard" lang="<span class="red">&#91;&#91;lang||en&#93;&#93;</span>"&gt;
+&lt;html class="homepage standard" lang="<span class="red">[[[[]]lang||en[[]]]]</span>"&gt;
 &lt;head&gt;
     &lt;meta charset="utf-8"&gt;
     &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
@@ -210,9 +210,9 @@
     &lt;meta name="theme-color" content="#ffffff"&gt;
     &lt;link rel="stylesheet" type="text/css" href="/css/normalize.css"&gt;
     &lt;link rel="stylesheet" type="text/css" href="/css/main.css"&gt;
-    <span class="red">&#91;&#91;extra-css&#93;&#93;</span>
+    <span class="red">[[[[]]extra-css[[]]]]</span>
     &lt;script type="text/javascript" src="/js/main.js"&gt;&lt;/script&gt;
-    <span class="red">&#91;&#91;extra-js&#93;&#93;</span>
+    <span class="red">[[[[]]extra-js[[]]]]</span>
 &lt;/head&gt;
 &lt;body&gt;
 <pre>    &lt;nav&gt;
@@ -221,15 +221,15 @@
         &lt;a href="/about"&gt;About&lt;/a&gt;
         &lt;a href="/blog"&gt;Blog&lt;/a&gt;
     &lt;/nav&gt;</pre>
-    <span class="red">&#91;&#91;main&#93;&#93;</span>
-    <span class="red">&#91;&#91;footer&#93;&#93;</span>
+    <span class="red">[[[[]]main[[]]]]</span>
+    <span class="red">[[[[]]footer[[]]]]</span>
 &lt;/body&gt;
 &lt;/html&gt;</pre>
         </div>
         <div data-stage="7">
-        	<p>Stage 7: The &#91;&#91;footer&#93;&#93; marker is replaced by the contents of body/footer.html</p>
+        	<p>Stage 7: The [[[[]]footer[[]]]] marker is replaced by the contents of body/footer.html</p>
             <pre class="codebox">&lt;!DOCTYPE html&gt;
-&lt;html class="homepage standard" lang="<span class="red">&#91;&#91;lang||en&#93;&#93;</span>"&gt;
+&lt;html class="homepage standard" lang="<span class="red">[[[[]]lang||en[[]]]]</span>"&gt;
 &lt;head&gt;
     &lt;meta charset="utf-8"&gt;
     &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
@@ -242,9 +242,9 @@
     &lt;meta name="theme-color" content="#ffffff"&gt;
     &lt;link rel="stylesheet" type="text/css" href="/css/normalize.css"&gt;
     &lt;link rel="stylesheet" type="text/css" href="/css/main.css"&gt;
-    <span class="red">&#91;&#91;extra-css&#93;&#93;</span>
+    <span class="red">[[[[]]extra-css[[]]]]</span>
     &lt;script type="text/javascript" src="/js/main.js"&gt;&lt;/script&gt;
-    <span class="red">&#91;&#91;extra-js&#93;&#93;</span>
+    <span class="red">[[[[]]extra-js[[]]]]</span>
 &lt;/head&gt;
 &lt;body&gt;
     &lt;nav&gt;
@@ -253,7 +253,7 @@
         &lt;a href="/about"&gt;About&lt;/a&gt;
         &lt;a href="/blog"&gt;Blog&lt;/a&gt;
     &lt;/nav&gt;
-    <span class="red">&#91;&#91;main&#93;&#93;</span>
+    <span class="red">[[[[]]main[[]]]]</span>
 <pre>    &lt;footer class="body-footer"&gt;
         &lt;span&gt;example.com &copy; 2019&lt;/span&gt;    
     &lt;/footer&gt;</pre>
@@ -261,9 +261,9 @@
 &lt;/html&gt;</pre>
         </div>
         <div data-stage="8">
-        	<p>Stage 8: The &#91;&#91;main&#93;&#93; marker is replaced by the contents of body/main/homepage.html</p>
+        	<p>Stage 8: The [[[[]]main[[]]]] marker is replaced by the contents of body/main/homepage.html</p>
             <pre class="codebox">&lt;!DOCTYPE html&gt;
-&lt;html class="homepage standard" lang="<span class="red">&#91;&#91;lang||en&#93;&#93;</span>"&gt;
+&lt;html class="homepage standard" lang="<span class="red">[[[[]]lang||en[[]]]]</span>"&gt;
 &lt;head&gt;
     &lt;meta charset="utf-8"&gt;
     &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
@@ -276,9 +276,9 @@
     &lt;meta name="theme-color" content="#ffffff"&gt;
     &lt;link rel="stylesheet" type="text/css" href="/css/normalize.css"&gt;
     &lt;link rel="stylesheet" type="text/css" href="/css/main.css"&gt;
-    <span class="red">&#91;&#91;extra-css&#93;&#93;</span>
+    <span class="red">[[[[]]extra-css[[]]]]</span>
     &lt;script type="text/javascript" src="/js/main.js"&gt;&lt;/script&gt;
-    <span class="red">&#91;&#91;extra-js&#93;&#93;</span>
+    <span class="red">[[[[]]extra-js[[]]]]</span>
 &lt;/head&gt;
 &lt;body&gt;
     &lt;nav&gt;
@@ -297,7 +297,7 @@
 &lt;/html&gt;</pre>
         </div>
         <div data-stage="9">
-        	<p>Stage 9: All unused &#91;&#91;markers&#93;&#93; are removed and all &#91;&#91;marker||default&#93;&#93; are resolved to the default</p>
+        	<p>Stage 9: All unused [[[[]]markers[[]]]] are removed and all [[[[]]marker||default[[]]]] are resolved to the default</p>
             <pre class="codebox">&lt;!DOCTYPE html&gt;
 &lt;html class="homepage standard" lang="en"&gt;
 &lt;head&gt;
