@@ -16,5 +16,5 @@
 	"sites" : {
 		"index": ["template-1", "sites"]
 	},
-	"test": ["template-1", "test"]
+	"test": ["blank", "test"]
 }
