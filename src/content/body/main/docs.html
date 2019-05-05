@@ -8,6 +8,8 @@
         <p><a href="#project-structure">project structure</a></p>
         <p><a href="#css-less-sass-and-js">CSS, LESS, SASS/SCSS and JavaScript</a></p>
         <p><a href="#images">images</a></p>
+        <p><a href="#env-file">.env file</a></p>
+        <p><a href="#wordpress">wordpress</a></p>
         <p><a href="#audit">npm run audit</a></p>
         <p></p>
     </aside>
@@ -61,9 +63,11 @@
             <li>blog/page-2</li>
         </ul>
         <p>The "index" and "404" pages would both use the "template-1" template defined in the contentmap.json</p>
-        <p>"index" would pass the string "homepage" and "404" would pass the string "four-zero-four" to replace the placeholder [PH1] in the contentmap.json</p>
+        <p>"index" would pass the string "homepage" to replace the placeholder [PH1] in the contentmap.json</p>
+        <p>"404" would pass the string "four-zero-four" to replace [PH1]</p>
         <p>Both blog pages would use the "blog-page" template defined in the contentmap.json</p>
-        <p>"page-1" would pass two strings "foo" and "bar" to replace [PH1] and [PH2] "page-2" would pass "baz" to replace [PH1] in the contentmap.json</p>
+        <p>"page-1" would pass two strings "foo" and "bar" to replace [PH1] and [PH2]</p>
+        <p>"page-2" would pass "baz" to replace [PH1] in the contentmap.json</p>
 
 
 
@@ -348,17 +352,17 @@
         "header": "body/header",
         "footer": "body/footer",
         "main": {
+            "template": "templates/body/main.mustache",
             "engine": "mustache",
-            "data": "data/body/main/[PH1].json",
-            "template" : "templates/body/main.mustache"
+            "data": "data/body/main/[PH1].json"
         }
     }
 }</pre>
 		<p>You can also specify an object from within the specified json. For example.</p>
 		<pre class="codebox">"main": {
+    "template": "templates/body/main.mustache",
     "engine": "mustache",
     "data": "data.json",
-    "template" : "templates/body/main.mustache",
     "object": "main.[PH1]"
 }</pre>
 
@@ -371,9 +375,9 @@
 		<p>You can also use external resources to create components. For example.</p>
 		<pre class="codebox">"footer": "https://example.com/pattern-library/footer.txt",
 "main": {
+    "template": "https://example.com/path/to/template.mustache",
     "engine": "mustache",
-    "data": "https://example.com/some/endpoint/data.json",
-    "template" : "https://example.com/path/to/template.mustache"
+    "data": "https://example.com/some/endpoint/data.json"
 }</pre>
 
 <!-- 
@@ -385,6 +389,13 @@
         <p>All html/template files should be placed inside the "content" directory. Other than that, statik-site maintains a pretty standard project structure.</p>
         <pre class="codebox">src
   content
+    body
+    data
+    head
+    templates
+    base.html
+    body.html
+    head.html
   css
   images
   js
@@ -414,10 +425,12 @@ sitemap.json</pre>
         <h2 id="images">Images</h2>
         <p>Any images placed into the <code>src/images</code> directory will be optimized and resized copies will be made.</p>
         <p>Resized copies will not be upscaled, so for example <code>src/images/santa.jpg</code> (if santa.jpg was 1000 &times; 400px) would result in</p>
-        <pre class="codebox">public/images/santa.jpg
+        <pre class="codebox">
+public/images/santa.jpg
 public/images/40/santa.jpg
 public/images/400/santa.jpg
-public/images/800/santa.jpg</pre>
+public/images/800/santa.jpg
+</pre>
         <p>Images in the <code>40/</code> directory are 40px wide and purposfully low quality (usually around ~700 bytes) to act as potential placeholders if/when using a lazyload image replacement script.</p>
         <p>Images will be resized to the following widths: 400, 800, 1200, 1600 and 2000, providing the original is greater than 2000px wide.</p>
         <p>Images in sub-directories will maintain their directory structure, for example <code class="wb-ba">src/images/christmas/banners/santa.jpg</code> will be copied/resized to the following directories</p>
@@ -425,6 +438,49 @@ public/images/800/santa.jpg</pre>
 public/images/40/christmas/banners/santa.jpg
 public/images/400/christmas/banners/santa.jpg
 public/images/800/christmas/banners/santa.jpg</pre>
+
+<!-- 
+        *********
+        WORDPRESS
+        *********
+-->
+
+<h2 id="wordpress">Wordpress</h2>
+<p>statik-site comes with a script that helps build sites using the wordpress rest API</p>
+<p>This script will generate json's for pages, posts (with comments), users, tags and categories. So that you can generate urls for them.<br />It will also overwrite the sitemap.json with new entries.</p>
+<p>You'll need to specify the location of the site's base url and wordpress rest API endpoint in the .env file located at the root of your project (see <a href="#env-file">.env file</a> section beneath)</p>
+
+<div class="codebox">
+<span>npm run wordpress</span><br />
+<span>npm start</span>
+</div>
+
+<!-- 
+        ****
+        .ENV
+        ****
+-->
+
+<h2 id="env-file">.env file</h2>
+<p>To enable https over localhost, paths for the cert and key will be needed in the .env file at the root of your project. More info on how to <a href="https://paulbrowne.xyz/https-localhost">enable https for localhost (mac)</a></p>
+<p>This file can also be used to specify different names for the "src", "content" and "public" directories, if you so wish. (defaults shown)</p>
+<p>If you are using statik-site to create a static site from the wordpress rest API, you will need to provide your site's base url and the rest API endpoint</p>
+
+<pre class="codebox">
+# needed for https://localhost
+SSL_CRT_PATH = /.ssl/localhost.crt
+SSL_KEY_PATH = /.ssl/localhost.key
+
+# alternative names for project directories
+PUBLIC_DIR_NAME = public
+SOURCE_DIR_NAME = src
+CONTENT_DIR_NAME = content
+WORDPRESS_JSON_DIR = data/wp-json
+
+# needed for using wordpress rest API as source
+SITE_NAME = https://example.com
+WORDPRESS_API_ENDPOINT = wp-json/wp/v2
+</pre>
 
 <!-- 
         *****
@@ -435,7 +491,8 @@ public/images/800/christmas/banners/santa.jpg</pre>
 <h2 id="audit">npm run audit</h2>
 <p>Running the command <code>npm run audit</code> will print to the command line a list of all the urls and a breakdown of which templates each page uses. As well as listing unused templates in the contentmap.json</p>
 
-<pre class="codebox">PAGES
+<pre class="codebox">
+PAGES
 =====
 
 https://example.com/404
@@ -488,7 +545,8 @@ TEMPLATES UNUSED
 ================
 
 christmas-template
-special-offer-template</pre>
+special-offer-template
+</pre>
 
 
 
