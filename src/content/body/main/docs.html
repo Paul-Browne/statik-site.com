@@ -8,9 +8,10 @@
         <p><a href="#project-structure">project structure</a></p>
         <p><a href="#css-less-sass-and-js">CSS, LESS, SASS/SCSS and JavaScript</a></p>
         <p><a href="#images">images</a></p>
-        <p><a href="#env-file">.env file</a></p>
         <p><a href="#wordpress">wordpress</a></p>
-        <p><a href="#audit">npm run audit</a></p>
+        <p><a href="#env-file">.env file</a></p>
+        <p><a href="#purge">purge</a></p>
+        <p><a href="#audit">audit</a></p>
         <p></p>
     </aside>
     <main>
@@ -481,6 +482,19 @@ WORDPRESS_JSON_DIR = data/wp-json
 SITE_NAME = https://example.com
 WORDPRESS_API_ENDPOINT = wp-json/wp/v2
 </pre>
+
+<!-- 
+        *****
+        PURGE
+        *****
+-->
+
+<h2 id="purge">Purge</h2>
+<p>running this command will delete the contents of the "public" directory and reset the .buildStamp file.</p>
+
+<div class="codebox">
+<span>npm run purge</span>
+</div>
 
 <!-- 
         *****
